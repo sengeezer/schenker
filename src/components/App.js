@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './company-logo.svg';
+import EnhancedForm from './Wizard';
+import logo from '../company-logo.svg';
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
+      <EnhancedForm />
     </div>
   );
 }
