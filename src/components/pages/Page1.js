@@ -43,6 +43,7 @@ const Page1 = () => (
     <Link to="/step2">
       <button type="button">Next »</button>
     </Link>
+    <button type="reset">Cancel</button>
   </Fragment>
 );
 

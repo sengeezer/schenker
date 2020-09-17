@@ -9,6 +9,8 @@ import { withFormik } from 'formik';
 
 import Page1 from './pages/Page1';
 import Page2 from './pages/Page2';
+import Page3 from './pages/Page3';
+import Page4 from './pages/Page4';
 
 import { Debug } from './Debug';
 
@@ -24,6 +26,14 @@ const BaseForm = ({ values, handleSubmit }) => (
           <Route
             path="/step2"
             render={routeProps => <Page2 {...routeProps} />}
+          />
+          <Route
+            path="/step3"
+            render={routeProps => <Page3 {...routeProps} />}
+          />
+          <Route
+            path="/step4"
+            render={routeProps => <Page4 {...routeProps} />}
           />
           <Redirect to="/step1" />
         </Switch>
@@ -43,7 +53,8 @@ export const EnhancedForm = withFormik({
     phone: '',
     mobilePhone: '',
     email: '',
-    verificationMethod: ''
+    verificationMethod: '',
+    verificationCode: ''
   }),
 
   validate: (values, props) => {

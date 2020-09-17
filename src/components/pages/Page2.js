@@ -19,9 +19,11 @@ const Page2 = () => (
       <ErrorMessage name="verificationMethod" component="div" className="field-error" />
     </div>
     <Link to="/step1">
-      <button type="button">Previous</button>
+      <button type="button">« Previous</button>
     </Link>
-    <button type="submit">Submit</button>
+    <Link to="/step3">
+      <button type="button">Next »</button>
+    </Link>
   </Fragment>
 );
 
