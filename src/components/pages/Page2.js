@@ -1,30 +1,22 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-// const required = value => (value ? undefined : 'Required');
+const required = value => (value ? undefined : 'Required');
 
 const Page2 = () => (
   <Fragment>
+    <h2>Please choose your preferred verification method</h2>
+    <p>We will send you a verification code that you will need to enter on the next screen.</p>
     <div>
-      <label>Email</label>
-      <Field name="email" component="input" type="email" placeholder="Email" />
-      <ErrorMessage name="email" component="div" className="field-error" />
-    </div>
-    <div>
-      <label>Favorite Color</label>
-      <Field name="favoriteColor" component="select">
-        <option value="">Select a Color</option>
-        <option value="#ff0000">❤️ Red</option>
-        <option value="#00ff00">💚 Green</option>
-        <option value="#0000ff">💙 Blue</option>
+      <label>Verification method</label>
+      <Field name="verificationMethod" component="select" validate={required}>
+        <option value="">Please make a selection</option>
+        <option value="landLine">020 3755 5125</option>
+        <option value="mobile">07133 7463 8476</option>
+        <option value="email">patient@stthomas.nhs.uk</option>
       </Field>
-      <ErrorMessage
-        name="favoriteColor"
-        component="div"
-        className="field-error"
-      />
+      <ErrorMessage name="verificationMethod" component="div" className="field-error" />
     </div>
     <Link to="/step1">
       <button type="button">Previous</button>

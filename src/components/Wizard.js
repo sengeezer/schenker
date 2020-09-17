@@ -37,10 +37,13 @@ const BaseForm = ({ values, handleSubmit }) => (
 export const EnhancedForm = withFormik({
   /* setup initial values */
   mapPropsToValues: () => ({
-    firstName: '',
     lastName: '',
+    dob: '',
+    postCode: '',
+    phone: '',
+    mobilePhone: '',
     email: '',
-    favoriteColor: ''
+    verificationMethod: ''
   }),
 
   validate: (values, props) => {
