@@ -1,79 +1,21 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, { Fragment } from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
   Redirect
-} from "react-router-dom";
-import { Field, ErrorMessage, withFormik } from "formik";
-import { Debug } from "./Debug";
+} from 'react-router-dom';
+import { withFormik } from 'formik';
 
+import Page1 from './pages/Page1';
+import Page2 from './pages/Page2';
 
-const required = value => (value ? undefined : "Required");
-
-const Page1 = () => (
-  <Fragment>
-    <div>
-      <label>First Name</label>
-      <Field
-        name="firstName"
-        component="input"
-        type="text"
-        placeholder="First Name"
-        validate={required}
-      />
-      <ErrorMessage name="firstName" component="div" className="field-error" />
-    </div>
-    <div>
-      <label>Last Name</label>
-      <Field
-        name="lastName"
-        component="input"
-        type="text"
-        placeholder="Last Name"
-        validate={required}
-      />
-      <ErrorMessage name="lastName" component="div" className="field-error" />
-    </div>
-    <Link to="/step2">
-      <button type="button">Next »</button>
-    </Link>
-  </Fragment>
-);
-
-const Page2 = () => (
-  <Fragment>
-    <div>
-      <label>Email</label>
-      <Field name="email" component="input" type="email" placeholder="Email" />
-      <ErrorMessage name="email" component="div" className="field-error" />
-    </div>
-    <div>
-      <label>Favorite Color</label>
-      <Field name="favoriteColor" component="select">
-        <option value="">Select a Color</option>
-        <option value="#ff0000">❤️ Red</option>
-        <option value="#00ff00">💚 Green</option>
-        <option value="#0000ff">💙 Blue</option>
-      </Field>
-      <ErrorMessage
-        name="favoriteColor"
-        component="div"
-        className="field-error"
-      />
-    </div>
-    <Link to="/step1">
-      <button type="button">Previous</button>
-    </Link>
-    <button type="submit">Submit</button>
-  </Fragment>
-);
+import { Debug } from './Debug';
 
 const BaseForm = ({ values, handleSubmit }) => (
   <Router>
-    <div className="App">
+    <div className="wizard">
       <h1>Multistep / Form Wizard </h1>
       <form onSubmit={handleSubmit}>
         <Switch>
@@ -97,18 +39,19 @@ const BaseForm = ({ values, handleSubmit }) => (
 export const EnhancedForm = withFormik({
   /* setup initial values */
   mapPropsToValues: () => ({
-    firstName: "",
-    lastName: "",
-    email: "",
-    favoriteColor: ""
+    firstName: '',
+    lastName: '',
+    email: '',
+    favoriteColor: ''
   }),
 
   validate: (values, props) => {
-    console.log("props", props);
+    console.log('props: ', props);
+
     const errors = {};
 
     if (!values.email) {
-      errors.email = "Required";
+      errors.email = 'Required';
     }
 
     return errors;
@@ -121,7 +64,7 @@ export const EnhancedForm = withFormik({
     }, 1000);
   },
 
-  displayName: "BaseForm"
+  displayName: 'BaseForm'
 })(BaseForm);
 
 export default EnhancedForm;
