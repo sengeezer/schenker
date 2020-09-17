@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -16,7 +15,6 @@ import { Debug } from './Debug';
 const BaseForm = ({ values, handleSubmit }) => (
   <Router>
     <div className="wizard">
-      <h1>Multistep / Form Wizard </h1>
       <form onSubmit={handleSubmit}>
         <Switch>
           <Route
