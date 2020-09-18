@@ -2,14 +2,15 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const required = value => (value ? undefined : 'Required');
+const required = value => (value ? undefined : 'Requireds');
 
-const Page1 = () => {
+const Page1 = (props) => {
   let [isBlocking, setIsBlocking] = useState(false);
-  
+
   return (
   <Fragment>
     <h2>Please enter your details</h2>
+    <p>{JSON.stringify(props)}</p>
     <div>
       <label>Last Name</label>
       <Field
@@ -44,8 +45,10 @@ const Page1 = () => {
       <ErrorMessage name="postCode" component="div" className="field-error" />
     </div>
     <Link to="/step2">
+      {/* TODO: Do not action if isBlocking(?) */}
       <button type="button">Next »</button>
     </Link>
+    {/* TODO: Should clear all fields */}
     <button type="reset">Cancel</button>
   </Fragment>
 )

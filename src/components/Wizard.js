@@ -14,7 +14,15 @@ import Page4 from './pages/Page4';
 
 import { Debug } from './Debug';
 
-const BaseForm = ({ values, handleSubmit }) => (
+const BaseForm = ({
+  values,
+  errors,
+  touched,
+  isValidating,
+  handleSubmit,
+  validateField,
+  validateForm
+}) => (
   <Router>
     <div className="wizard">
       <form onSubmit={handleSubmit}>
@@ -45,7 +53,7 @@ const BaseForm = ({ values, handleSubmit }) => (
 );
 
 export const EnhancedForm = withFormik({
-  /* setup initial values */
+  // setup initial values
   mapPropsToValues: () => ({
     lastName: '',
     dob: '',
@@ -73,6 +81,7 @@ export const EnhancedForm = withFormik({
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
       setSubmitting(false);
+      // TODO: unblock navigation & reset form?
     }, 1000);
   },
 
