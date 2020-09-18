@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
 const required = value => (value ? undefined : 'Required');
 
-const Page3 = () => (
+const Page3 = () => {
+  let [isBlocking, setIsBlocking] = useState(false);
+  
+  return (
   <Fragment>
     <h2>Enter verification code</h2>
     <p>Please enter the verification code you just received from us.</p>
@@ -22,8 +25,11 @@ const Page3 = () => (
     <Link to="/step2">
       <button type="button">« Previous</button>
     </Link>
-    <button type="submit">Submit</button>
+    <Link to="/step4">
+      <button type="submit">Submit</button>
+    </Link>
   </Fragment>
-);
+)
+};
 
 export default Page3;

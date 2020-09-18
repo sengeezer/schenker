@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
 const required = value => (value ? undefined : 'Required');
 
-const Page1 = () => (
+const Page1 = () => {
+  let [isBlocking, setIsBlocking] = useState(false);
+  
+  return (
   <Fragment>
     <h2>Please enter your details</h2>
     <div>
@@ -45,6 +48,7 @@ const Page1 = () => (
     </Link>
     <button type="reset">Cancel</button>
   </Fragment>
-);
+)
+};
 
 export default Page1;

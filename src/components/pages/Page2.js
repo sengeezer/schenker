@@ -1,10 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
 const required = value => (value ? undefined : 'Required');
 
-const Page2 = () => (
+const Page2 = () => {
+  let [isBlocking, setIsBlocking] = useState(false);
+  
+  return (
   <Fragment>
     <h2>Please choose your preferred verification method</h2>
     <p>We will send you a verification code that you will need to enter on the next screen.</p>
@@ -25,6 +28,7 @@ const Page2 = () => (
       <button type="button">Next »</button>
     </Link>
   </Fragment>
-);
+)
+};
 
 export default Page2;

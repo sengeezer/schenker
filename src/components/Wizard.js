@@ -62,8 +62,8 @@ export const EnhancedForm = withFormik({
 
     const errors = {};
 
-    if (!values.email) {
-      errors.email = 'Required';
+    if (!values.lastName) {
+      errors.lastName = 'Required';
     }
 
     return errors;
