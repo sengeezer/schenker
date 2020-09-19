@@ -2,8 +2,8 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const Page3 = ({ validateCode }) => {
-  let [isBlocking, setIsBlocking] = useState(false);
+const Page3 = ({ validateCode, isValid }) => {
+  let [disableButton] = useState(isValid);
 
   return (
   <Fragment>
@@ -24,7 +24,7 @@ const Page3 = ({ validateCode }) => {
       <button type="button">« Previous</button>
     </Link>
     <Link to="/step4">
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={disableButton}>Submit</button>
     </Link>
   </Fragment>
 )

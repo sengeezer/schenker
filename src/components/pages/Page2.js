@@ -4,8 +4,8 @@ import { Field, ErrorMessage } from 'formik';
 
 const required = value => (value ? undefined : 'Required');
 
-const Page2 = () => {
-  let [isBlocking, setIsBlocking] = useState(false);
+const Page2 = ({ isValid }) => {
+  let [disableButton] = useState(isValid);
   
   return (
   <Fragment>
@@ -25,7 +25,7 @@ const Page2 = () => {
       <button type="button">« Previous</button>
     </Link>
     <Link to="/step3">
-      <button type="button">Next »</button>
+      <button type="button" disabled={disableButton}>Next »</button>
     </Link>
   </Fragment>
 )

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -28,8 +28,15 @@ const BaseForm = ({
   isValidating,
   handleSubmit,
   validateField,
-  validateForm
-}) => (
+  validateForm,
+  isValid,
+  status
+}) => {
+  let [isBlocking, setIsBlocking] = useState(false);
+
+  // isValid ? setIsBlocking(false) : setIsBlocking(true);
+
+  return (
   <Router>
     <div className="wizard">
       <form onSubmit={handleSubmit}>
@@ -41,6 +48,8 @@ const BaseForm = ({
                                     validateLastName={validateLastName}
                                     validatePostCode={validatePostCode}
                                     validateDob={validateDob}
+                                    isValid={isValid}
+                                    status={status}
                                   />}
           />
           <Route
@@ -49,7 +58,7 @@ const BaseForm = ({
           />
           <Route
             path="/step3"
-            render={routeProps => <Page3 {...routeProps} validateCode={validateCode} />}
+            render={routeProps => <Page3 {...routeProps} validateCode={validateCode} isValid={isValid} />}
           />
           <Route
             path="/step4"
@@ -57,12 +66,12 @@ const BaseForm = ({
           />
           <Redirect to="/step1" />
         </Switch>
-
+        {isValid ? <p>Valid</p> : <p>Invalid</p>}
         <Debug />
       </form>
     </div>
   </Router>
-);
+)};
 
 export const EnhancedForm = withFormik({
   // setup initial values
@@ -77,8 +86,13 @@ export const EnhancedForm = withFormik({
     verificationCode: ''
   }),
 
+  mapPropsToStatus: props => ({
+    // isValid: props.isValid,
+    myProps: JSON.stringify(props),
+  }),
+
   validate: (values, props) => {
-    console.log('props: ', props);
+    console.log('props1: ', props);
 
     const errors = {};
 

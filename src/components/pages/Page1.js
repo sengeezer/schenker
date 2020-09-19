@@ -2,8 +2,13 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const Page1 = ({ validateLastName, validatePostCode, validateDob}) => {
-  let [isBlocking, setIsBlocking] = useState(false);
+const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, status}) => {
+  // while !isValid, setIsBlocking = true
+  // let [isBlocking, setIsBlocking] = useState(false);
+  // let disableButtons = !isValid.toString();
+
+  let [disableButton] = useState(isValid);
+  // isValid ? setIsBlocking(false) : setIsBlocking(true);
 
   return (
   <Fragment>
@@ -43,10 +48,12 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob}) => {
     </div>
     <Link to="/step2">
       {/* TODO: Do not action if isBlocking(?) */}
-      <button type="button">Next »</button>
+      <button type="button" disabled={disableButton}>Next »</button>
     </Link>
     {/* TODO: Should clear all fields */}
     <button type="reset">Cancel</button>
+    {/* {isValid ? <p>Valid</p> : <p>Invalid</p>} */}
+    {`Status: ${JSON.stringify(status)}`}
   </Fragment>
 )
 };
