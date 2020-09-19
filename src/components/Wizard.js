@@ -15,7 +15,8 @@ import Page4 from './pages/Page4';
 import {
   validateLastName,
   validatePostCode,
-  validateDob
+  validateDob,
+  validateCode
 } from '../fieldValidation';
 
 import { Debug } from './Debug';
@@ -48,7 +49,7 @@ const BaseForm = ({
           />
           <Route
             path="/step3"
-            render={routeProps => <Page3 {...routeProps} />}
+            render={routeProps => <Page3 {...routeProps} validateCode={validateCode} />}
           />
           <Route
             path="/step4"

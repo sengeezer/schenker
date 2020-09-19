@@ -40,5 +40,19 @@ const validateDob = value => {
   return error;
 };
 
+const validateCode = value => {
+  let error;
 
-export { validateLastName, validatePostCode, validateDob };
+  if (!value) {
+    error = 'This field is required.';
+  } else if (!/^[0-9]{4}$/g.test(value)) {
+    error = 'A valid code is four digits long.';
+  } else if (value !== '0000') {
+    error = 'The code you have entered is incorrect.';
+  }
+
+  return error;
+};
+
+
+export { validateLastName, validatePostCode, validateDob, validateCode };

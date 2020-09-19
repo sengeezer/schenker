@@ -2,11 +2,9 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const required = value => (value ? undefined : 'Required');
-
-const Page3 = () => {
+const Page3 = ({ validateCode }) => {
   let [isBlocking, setIsBlocking] = useState(false);
-  
+
   return (
   <Fragment>
     <h2>Enter verification code</h2>
@@ -18,7 +16,7 @@ const Page3 = () => {
         component="input"
         type="text"
         placeholder="XXXX"
-        validate={required}
+        validate={validateCode}
       />
       <ErrorMessage name="verificationCode" component="div" className="field-error" />
     </div>
