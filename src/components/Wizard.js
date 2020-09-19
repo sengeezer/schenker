@@ -12,6 +12,12 @@ import Page2 from './pages/Page2';
 import Page3 from './pages/Page3';
 import Page4 from './pages/Page4';
 
+import {
+  validateLastName,
+  validatePostCode,
+  validateDob
+} from '../fieldValidation';
+
 import { Debug } from './Debug';
 
 const BaseForm = ({
@@ -29,7 +35,12 @@ const BaseForm = ({
         <Switch>
           <Route
             path="/step1"
-            render={routeProps => <Page1 {...routeProps} />}
+            render={routeProps => <Page1
+                                    {...routeProps}
+                                    validateLastName={validateLastName}
+                                    validatePostCode={validatePostCode}
+                                    validateDob={validateDob}
+                                  />}
           />
           <Route
             path="/step2"
