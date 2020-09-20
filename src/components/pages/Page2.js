@@ -2,9 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const required = value => (value ? undefined : 'Required');
-
-const Page2 = ({ isValid }) => {
+const Page2 = ({ isValid, required }) => {
   let [disableButton] = useState(isValid);
   
   return (

@@ -1,5 +1,7 @@
 // Regular expressions written by or derived from regexr.com community
 
+const required = value => (value ? undefined : 'Required');
+
 const validateLastName = value => {
   let error;
 
@@ -55,4 +57,4 @@ const validateCode = value => {
 };
 
 
-export { validateLastName, validatePostCode, validateDob, validateCode };
+export { validateLastName, validatePostCode, validateDob, validateCode, required };
