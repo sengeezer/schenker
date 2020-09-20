@@ -32,10 +32,12 @@ const BaseForm = ({
   validateField,
   validateForm,
   isValid,
+  dirty,
   status
 }) => {
   // let [isBlocking, setIsBlocking] = useState(false);
-  
+  // let [valids] = useState(isValid);
+  // console.log('first: ', isValid);
   return (
   <Router>
     <div className="wizard">
@@ -49,6 +51,7 @@ const BaseForm = ({
                                     validatePostCode={validatePostCode}
                                     validateDob={validateDob}
                                     isValid={isValid}
+                                    isDirty={dirty}
                                     handleReset={handleReset}
                                     status={status}
                                   />}
@@ -87,10 +90,10 @@ export const EnhancedForm = withFormik({
     verificationCode: ''
   }),
 
-  // TODO: Remove if unused
+  // TODO: Remove if no longer needed
   mapPropsToStatus: props => ({
     // isValid: props.isValid,
-    myProps: JSON.stringify(props),
+    myProps: JSON.stringify(props)
   }),
 
   validate: (values, props) => {
@@ -98,9 +101,9 @@ export const EnhancedForm = withFormik({
 
     const errors = {};
 
-    if (!values.lastName) {
-      errors.lastName = 'Required';
-    }
+    // if (!values.lastName) {
+    //   errors.lastName = 'Required';
+    // }
 
     return errors;
   },

@@ -1,10 +1,32 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handleReset, status}) => {
-  let [disableButton] = useState(isValid);
+const getValidity = (valid, dirty) => {
+  // if (!dirty || !valid) {
+  //   return false; }
+  // } else if (!valid) {
+  //   return false;
+  // }
+  return !dirty || !valid ? false : true;
+  // return true;
+}
 
+const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handleReset, isDirty, status}) => {
+  // let [disableButton, setDisableButton] = useState(!isValid);
+  let validity = getValidity(isValid, isDirty);
+  console.log('validity: ', validity);
+  let [disableButton, setDisableButton] = useState(!validity);
+  // TODO: Set initial isValid to false -- !dirty && !isValid?
+  
+
+  useEffect(() => {
+    if(!validity !== disableButton) {
+      setDisableButton(!validity);
+    }
+  }, [validity, disableButton]);
+
+  console.log(isValid, disableButton, isDirty);
   return (
     <Fragment>
       <h2>Please enter your details</h2>
@@ -46,6 +68,7 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
       </Link>
         <button type="reset" onClick={handleReset}>Cancel</button>
       {/* {`Status: ${JSON.stringify(status)}`} */}
+      <p>{disableButton}</p>
     </Fragment>
   );
 };
