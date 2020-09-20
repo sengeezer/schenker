@@ -7,7 +7,7 @@ const validateLastName = value => {
 
   if (!value) {
     error = 'This field is required.';
-  } else if (!/[^0-9\.\,\"\?\!\;\:\#\$\%\&\(\)\*\+\-\/\<\>\=\@\[\]\\\^\_\{\}\|\~]+/i.test(value)) {
+  } else if (!/[^0-9.,"?!;:#$%&()*+\-/<>=@[\]\\^_{}|~]+/i.test(value)) {
     error = 'Please remove any numbers or non-letter characters';
   } else if (value.length < 2) {
     error = 'Please enter your full last name.';
@@ -57,4 +57,10 @@ const validateCode = value => {
 };
 
 
-export { validateLastName, validatePostCode, validateDob, validateCode, required };
+export {
+  validateLastName,
+  validatePostCode,
+  validateDob,
+  validateCode,
+  required
+};

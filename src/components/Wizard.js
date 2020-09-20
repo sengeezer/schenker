@@ -87,6 +87,7 @@ export const EnhancedForm = withFormik({
     verificationCode: ''
   }),
 
+  // TODO: Remove if unused
   mapPropsToStatus: props => ({
     // isValid: props.isValid,
     myProps: JSON.stringify(props),
