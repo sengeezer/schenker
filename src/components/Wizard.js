@@ -27,15 +27,14 @@ const BaseForm = ({
   touched,
   isValidating,
   handleSubmit,
+  handleReset,
   validateField,
   validateForm,
   isValid,
   status
 }) => {
-  let [isBlocking, setIsBlocking] = useState(false);
-
-  // isValid ? setIsBlocking(false) : setIsBlocking(true);
-
+  // let [isBlocking, setIsBlocking] = useState(false);
+  
   return (
   <Router>
     <div className="wizard">
@@ -49,6 +48,7 @@ const BaseForm = ({
                                     validatePostCode={validatePostCode}
                                     validateDob={validateDob}
                                     isValid={isValid}
+                                    handleReset={handleReset}
                                     status={status}
                                   />}
           />
@@ -66,7 +66,7 @@ const BaseForm = ({
           />
           <Redirect to="/step1" />
         </Switch>
-        {isValid ? <p>Valid</p> : <p>Invalid</p>}
+        {/* {isValid ? <p>Valid</p> : <p>Invalid</p>} */}
         <Debug />
       </form>
     </div>
@@ -103,10 +103,11 @@ export const EnhancedForm = withFormik({
     return errors;
   },
 
-  handleSubmit: (values, { setSubmitting }) => {
+  handleSubmit: (values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
       alert(JSON.stringify(values, null, 2));
       setSubmitting(false);
+      resetForm();
       // TODO: unblock navigation & reset form?
     }, 1000);
   },
