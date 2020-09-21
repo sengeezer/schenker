@@ -18,7 +18,7 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
   return (
     <Fragment>
       <h2>Please enter your details</h2>
-      <div>
+      <div className="form-field">
         <label>Last Name</label>
         <Field
           name="lastName"
@@ -29,7 +29,7 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
         />
         <ErrorMessage name="lastName" component="div" className="field-error" />
       </div>
-      <div>
+      <div className="form-field">
         <label>Date of Birth</label>
         <Field
           name="dob"
@@ -40,7 +40,7 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
         />
         <ErrorMessage name="dob" component="div" className="field-error" />
       </div>
-      <div>
+      <div className="form-field">
         <label>Post Code</label>
         <Field
           name="postCode"
@@ -56,7 +56,6 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
       </Link>
         <button type="reset" onClick={handleReset}>Cancel</button>
       {/* {`Status: ${JSON.stringify(status)}`} */}
-      <p>{disableButton}</p>
     </Fragment>
   );
 };

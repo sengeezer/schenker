@@ -10,7 +10,7 @@ function App() {
         <img src={logo} className="App-logo" alt="Company logo" />
         <h1>Patient Check-in</h1>
       </header>
-      <EnhancedForm className="flex-item" />
+      <EnhancedForm className="flex-item wizard-container" />
     </div>
   );
 }

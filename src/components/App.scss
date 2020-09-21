@@ -8,23 +8,49 @@
   justify-content: center;
 
   &-logo {
-    height: 10vmin;
+    height: 8vmin;
     pointer-events: none;
   }
 
   &-header {
-    background-color: #282c34;
-    // min-height: 14vh;
-    // display: flex;
-    // flex-direction: row;
-    // align-items: left;
-    // justify-content: left;
+    background-color: rgb(214, 245, 105);
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: rgb(85, 82, 82);
   }
 
   .flex-item {
-    margin-bottom: 10px;
+    margin: 0;
+    padding: 0;
+    width: 30vw;
+    
     text-align: center;
+  }
+
+  .wizard {
+    background-color: lightcyan;
+    margin: 0;
+    padding: 0;
+    min-width: 30vw;
+
+    form {
+      padding: 0 1.5vw 1.5vw 1.5vw;
+
+      .form-field {
+        margin-bottom: 2.5vh;
+        display: flex;
+        flex-direction: row;
+        // align-items: left;
+        // justify-content: space-evenly;
+
+        label {
+          width: 10vw;
+        }
+      }
+    }
   }
 }
