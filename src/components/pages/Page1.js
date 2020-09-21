@@ -51,10 +51,12 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
         />
         <ErrorMessage name="postCode" component="div" className="field-error" />
       </div>
-      <Link to="/step2">
-        <button type="button" disabled={disableButton}>Next »</button>
-      </Link>
+      <div className="button-bar">
+        <Link to="/step2">
+          <button type="button" disabled={disableButton}>Next »</button>
+        </Link>
         <button type="reset" onClick={handleReset}>Cancel</button>
+      </div>
       {/* {`Status: ${JSON.stringify(status)}`} */}
     </Fragment>
   );

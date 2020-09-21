@@ -42,6 +42,16 @@ const validateDob = value => {
   return error;
 };
 
+const validateDropDown = value => {
+  let error;
+  
+  if (!value || value === 'select') {
+    error = 'This field is required.'
+  }
+
+  return error;
+};
+
 const validateCode = value => {
   let error;
 
@@ -61,6 +71,7 @@ export {
   validateLastName,
   validatePostCode,
   validateDob,
+  validateDropDown,
   validateCode,
   required
 };

@@ -7,7 +7,7 @@ const Page4 = () => (
     <p>Please be seated. Someone will call for you shortly.</p>
 
     <Link to="/step1">
-      <button type="button">Home</button>
+      <button type="reset">Home</button>
     </Link>
   </Fragment>
 );

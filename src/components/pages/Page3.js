@@ -18,7 +18,7 @@ const Page3 = ({ isValid, isDirty, validateCode }) => {
     <Fragment>
       <h2>Enter verification code</h2>
       <p>Please enter the verification code you just received from us.</p>
-      <div>
+      <div className="form-field">
         <label>Verification Code</label>
         <Field
           name="verificationCode"
@@ -29,12 +29,14 @@ const Page3 = ({ isValid, isDirty, validateCode }) => {
         />
         <ErrorMessage name="verificationCode" component="div" className="field-error" />
       </div>
-      <Link to="/step2">
-        <button type="button">« Previous</button>
-      </Link>
-      <Link to="/step4">
-        <button type="submit" disabled={disableButton}>Submit</button>
-      </Link>
+      <div className="button-bar">
+        <Link to="/step2">
+          <button type="button">« Previous</button>
+        </Link>
+        <Link to="/step4">
+          <button type="submit" disabled={disableButton}>Submit</button>
+        </Link>
+      </div>
     </Fragment>
   );
 };

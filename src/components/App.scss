@@ -40,15 +40,34 @@
     form {
       padding: 0 1.5vw 1.5vw 1.5vw;
 
+      h2, p {
+        max-width: 23vw;
+      }
+
       .form-field {
         margin-bottom: 2.5vh;
         display: flex;
-        flex-direction: row;
-        // align-items: left;
-        // justify-content: space-evenly;
+        flex-direction: column;
 
-        label {
-          width: 10vw;
+        label, input, select {
+          width: 12vw;
+          margin-bottom: 1.5vh;
+        }
+      }
+
+      .field-error {
+        font-size: 3vh;
+        font-weight: bold;
+        color: red;
+      }
+
+      .button-bar {
+        display: flex;
+        flex-direction: row;
+
+        button {
+          width: 19vh;
+          margin-right: 2vh;
         }
       }
     }

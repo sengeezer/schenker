@@ -5,10 +5,13 @@ import { FormikConsumer } from 'formik';
 export const Debug = () => (
   <div
     style={{
-      margin: '3rem 1rem',
+      margin: '0 1rem',
       borderRadius: 4,
       background: '#f6f8fa',
       boxShadow: '0 0 1px  #eee inset',
+      position: 'absolute',
+      left: 0,
+      top:0,
     }}
   >
     <div

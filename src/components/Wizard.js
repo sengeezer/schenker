@@ -16,11 +16,12 @@ import {
   validateLastName,
   validatePostCode,
   validateDob,
+  validateDropDown,
   validateCode,
   required
 } from '../fieldValidation';
 
-// import { Debug } from './Debug';
+import { Debug } from './Debug';
 
 const BaseForm = ({
   values,
@@ -59,6 +60,7 @@ const BaseForm = ({
             render={routeProps => <Page2
                                     {...routeProps}
                                     validateRequired={required}
+                                    validateDropDown={validateDropDown}
                                     isValid={isValid}
                                     isDirty={dirty}
                                   />}
@@ -78,9 +80,10 @@ const BaseForm = ({
           />
           <Redirect to="/step1" />
         </Switch>
-        {/* <Debug /> */}
+        
       </form>
     </div>
+    <Debug />
   </Router>
 )};
 

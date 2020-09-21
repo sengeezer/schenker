@@ -4,7 +4,7 @@ import { Field, ErrorMessage } from 'formik';
 
 const getValidity = (valid, dirty) => (!dirty || !valid ? false : true);
 
-const Page2 = ({ isValid, isDirty, validateRequired }) => {
+const Page2 = ({ isValid, isDirty, validateDropDown, validateRequired }) => {
   let validity = getValidity(isValid, isDirty);
   let [disableButton, setDisableButton] = useState(!validity);
 
@@ -17,10 +17,11 @@ const Page2 = ({ isValid, isDirty, validateRequired }) => {
   return (
     <Fragment>
       <h2>Please choose your preferred verification method</h2>
+      <p>We have found your record in our system.</p>
       <p>We will send you a verification code that you will need to enter on the next screen.</p>
-      <div>
+      <div className="form-field">
         <label>Verification method</label>
-        <Field name="verificationMethod" component="select" validate={validateRequired}>
+        <Field name="verificationMethod" component="select" validate={validateDropDown}>
           <option value="">Please make a selection</option>
           <option value="landLine">020 3755 5125</option>
           <option value="mobile">07133 7463 8476</option>
@@ -28,12 +29,14 @@ const Page2 = ({ isValid, isDirty, validateRequired }) => {
         </Field>
         <ErrorMessage name="verificationMethod" component="div" className="field-error" />
       </div>
-      <Link to="/step1">
-        <button type="button">« Previous</button>
-      </Link>
-      <Link to="/step3">
-        <button type="button" disabled={disableButton}>Next »</button>
-      </Link>
+      <div className="button-bar">
+        <Link to="/step1">
+          <button type="button">« Previous</button>
+        </Link>
+        <Link to="/step3">
+          <button type="button" disabled={disableButton}>Next »</button>
+        </Link>
+      </div>
     </Fragment>
   );
 };
