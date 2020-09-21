@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -20,7 +20,7 @@ import {
   required
 } from '../fieldValidation';
 
-import { Debug } from './Debug';
+// import { Debug } from './Debug';
 
 const BaseForm = ({
   values,
@@ -35,8 +35,6 @@ const BaseForm = ({
   dirty,
   status
 }) => {
-  // let [isBlocking, setIsBlocking] = useState(false);
-  // let [valids] = useState(isValid);
   // console.log('first: ', isValid);
   return (
   <Router>
@@ -80,7 +78,7 @@ const BaseForm = ({
           />
           <Redirect to="/step1" />
         </Switch>
-        <Debug />
+        {/* <Debug /> */}
       </form>
     </div>
   </Router>
@@ -106,7 +104,7 @@ export const EnhancedForm = withFormik({
   }),
 
   validate: (values, props) => {
-    console.log('props1: ', props);
+    // console.log('props1: ', props);
 
     const errors = {};
 
@@ -119,10 +117,8 @@ export const EnhancedForm = withFormik({
 
   handleSubmit: (values, { setSubmitting, resetForm }) => {
     setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
       setSubmitting(false);
       resetForm();
-      // TODO: unblock navigation & reset form?
     }, 1000);
   },
 

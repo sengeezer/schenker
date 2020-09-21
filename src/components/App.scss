@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   &-logo {
     height: 10vmin;
@@ -8,17 +14,17 @@
 
   &-header {
     background-color: #282c34;
-    min-height: 14vh;
-    display: flex;
-    flex-direction: row;
-    align-items: left;
-    justify-content: left;
+    // min-height: 14vh;
+    // display: flex;
+    // flex-direction: row;
+    // align-items: left;
+    // justify-content: left;
     font-size: calc(10px + 2vmin);
     color: white;
   }
 
-  &-link {
-    color: #61dafb;
+  .flex-item {
+    margin-bottom: 10px;
+    text-align: center;
   }
 }
-
