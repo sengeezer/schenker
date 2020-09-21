@@ -1,9 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const Page2 = ({ isValid, required }) => {
-  let [disableButton] = useState(isValid);
+const getValidity = (valid, dirty) => (!dirty || !valid ? false : true);
+
+const Page2 = ({ isValid, isDirty, validateRequired }) => {
+  let validity = getValidity(isValid, isDirty);
+  let [disableButton, setDisableButton] = useState(!validity);
+
+  useEffect(() => {
+    if(!validity !== disableButton) {
+      setDisableButton(!validity);
+    }
+  }, [validity, disableButton]);
   
   return (
     <Fragment>
@@ -11,7 +20,7 @@ const Page2 = ({ isValid, required }) => {
       <p>We will send you a verification code that you will need to enter on the next screen.</p>
       <div>
         <label>Verification method</label>
-        <Field name="verificationMethod" component="select" validate={required}>
+        <Field name="verificationMethod" component="select" validate={validateRequired}>
           <option value="">Please make a selection</option>
           <option value="landLine">020 3755 5125</option>
           <option value="mobile">07133 7463 8476</option>

@@ -1,9 +1,18 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const Page3 = ({ validateCode, isValid }) => {
-  let [disableButton] = useState(isValid);
+const getValidity = (valid, dirty) => (!dirty || !valid ? false : true);
+
+const Page3 = ({ isValid, isDirty, validateCode }) => {
+  let validity = getValidity(isValid, isDirty);
+  let [disableButton, setDisableButton] = useState(!validity);
+
+  useEffect(() => {
+    if(!validity !== disableButton) {
+      setDisableButton(!validity);
+    }
+  }, [validity, disableButton]);
 
   return (
     <Fragment>

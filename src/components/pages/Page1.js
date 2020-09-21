@@ -2,23 +2,11 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 
-const getValidity = (valid, dirty) => {
-  // if (!dirty || !valid) {
-  //   return false; }
-  // } else if (!valid) {
-  //   return false;
-  // }
-  return !dirty || !valid ? false : true;
-  // return true;
-}
+const getValidity = (valid, dirty) => (!dirty || !valid ? false : true);
 
 const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handleReset, isDirty, status}) => {
-  // let [disableButton, setDisableButton] = useState(!isValid);
   let validity = getValidity(isValid, isDirty);
-  console.log('validity: ', validity);
   let [disableButton, setDisableButton] = useState(!validity);
-  // TODO: Set initial isValid to false -- !dirty && !isValid?
-  
 
   useEffect(() => {
     if(!validity !== disableButton) {
@@ -26,7 +14,7 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
     }
   }, [validity, disableButton]);
 
-  console.log(isValid, disableButton, isDirty);
+  // console.log(isValid, disableButton, isDirty);
   return (
     <Fragment>
       <h2>Please enter your details</h2>

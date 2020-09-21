@@ -58,11 +58,21 @@ const BaseForm = ({
           />
           <Route
             path="/step2"
-            render={routeProps => <Page2 {...routeProps} required={required} />}
+            render={routeProps => <Page2
+                                    {...routeProps}
+                                    validateRequired={required}
+                                    isValid={isValid}
+                                    isDirty={dirty}
+                                  />}
           />
           <Route
             path="/step3"
-            render={routeProps => <Page3 {...routeProps} validateCode={validateCode} isValid={isValid} />}
+            render={routeProps => <Page3
+                                    {...routeProps}
+                                    validateCode={validateCode}
+                                    isValid={isValid}
+                                    isDirty={dirty}
+                                  />}
           />
           <Route
             path="/step4"
@@ -70,7 +80,6 @@ const BaseForm = ({
           />
           <Redirect to="/step1" />
         </Switch>
-        {/* {isValid ? <p>Valid</p> : <p>Invalid</p>} */}
         <Debug />
       </form>
     </div>
