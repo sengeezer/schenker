@@ -63,6 +63,7 @@ const BaseForm = ({
                                     validateDropDown={validateDropDown}
                                     isValid={isValid}
                                     isDirty={dirty}
+                                    values={values}
                                   />}
           />
           <Route
@@ -72,6 +73,7 @@ const BaseForm = ({
                                     validateCode={validateCode}
                                     isValid={isValid}
                                     isDirty={dirty}
+                                    values={values}
                                   />}
           />
           <Route
