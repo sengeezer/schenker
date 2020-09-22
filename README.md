@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+*Note:* Even though this project was bootstrapped with Yarn, npm can be used as well in its place.
+
+Setup only consists of cloning the repo and then in the main directory running `yarn` or `npm install` respectively. (A recent version of Node being installed is assumed.)
+
 ## Available Scripts
 
 In the project directory, you can run:
