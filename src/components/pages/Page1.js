@@ -4,7 +4,7 @@ import { Field, ErrorMessage } from 'formik';
 
 const getValidity = (valid, dirty) => (!dirty || !valid ? false : true);
 
-const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handleReset, isDirty, status}) => {
+const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handleReset, isDirty }) => {
   let validity = getValidity(isValid, isDirty);
   let [disableButton, setDisableButton] = useState(!validity);
 
@@ -14,7 +14,6 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
     }
   }, [validity, disableButton]);
 
-  // console.log(isValid, disableButton, isDirty);
   return (
     <Fragment>
       <h2>Please enter your details</h2>
@@ -57,7 +56,6 @@ const Page1 = ({ validateLastName, validatePostCode, validateDob, isValid, handl
         </Link>
         <button type="reset" onClick={handleReset}>Cancel</button>
       </div>
-      {/* {`Status: ${JSON.stringify(status)}`} */}
     </Fragment>
   );
 };

@@ -21,73 +21,63 @@ import {
   required
 } from '../fieldValidation';
 
-import { Debug } from './Debug';
-
 const BaseForm = ({
   values,
-  errors,
-  touched,
-  isValidating,
   handleSubmit,
   handleReset,
-  validateField,
-  validateForm,
   isValid,
-  dirty,
-  status
+  dirty
 }) => {
-  // console.log('first: ', isValid);
+
   return (
-  <Router>
-    <div className="wizard">
-      <form onSubmit={handleSubmit}>
-        <Switch>
-          <Route
-            path="/step1"
-            render={routeProps => <Page1
-                                    {...routeProps}
-                                    validateLastName={validateLastName}
-                                    validatePostCode={validatePostCode}
-                                    validateDob={validateDob}
-                                    isValid={isValid}
-                                    isDirty={dirty}
-                                    handleReset={handleReset}
-                                    status={status}
-                                  />}
-          />
-          <Route
-            path="/step2"
-            render={routeProps => <Page2
-                                    {...routeProps}
-                                    validateRequired={required}
-                                    validateDropDown={validateDropDown}
-                                    isValid={isValid}
-                                    isDirty={dirty}
-                                    values={values}
-                                  />}
-          />
-          <Route
-            path="/step3"
-            render={routeProps => <Page3
-                                    {...routeProps}
-                                    validateCode={validateCode}
-                                    isValid={isValid}
-                                    isDirty={dirty}
-                                    values={values}
-                                  />}
-          />
-          <Route
-            path="/step4"
-            render={routeProps => <Page4 {...routeProps} />}
-          />
-          <Redirect to="/step1" />
-        </Switch>
-        
-      </form>
-    </div>
-    <Debug />
-  </Router>
-)};
+    <Router>
+      <div className="wizard">
+        <form onSubmit={handleSubmit}>
+          <Switch>
+            <Route
+              path="/step1"
+              render={routeProps => <Page1
+                                      {...routeProps}
+                                      validateLastName={validateLastName}
+                                      validatePostCode={validatePostCode}
+                                      validateDob={validateDob}
+                                      isValid={isValid}
+                                      isDirty={dirty}
+                                      handleReset={handleReset}
+                                    />}
+            />
+            <Route
+              path="/step2"
+              render={routeProps => <Page2
+                                      {...routeProps}
+                                      validateRequired={required}
+                                      validateDropDown={validateDropDown}
+                                      isValid={isValid}
+                                      isDirty={dirty}
+                                      values={values}
+                                    />}
+            />
+            <Route
+              path="/step3"
+              render={routeProps => <Page3
+                                      {...routeProps}
+                                      validateCode={validateCode}
+                                      isValid={isValid}
+                                      isDirty={dirty}
+                                      values={values}
+                                    />}
+            />
+            <Route
+              path="/step4"
+              render={routeProps => <Page4 {...routeProps} />}
+            />
+            <Redirect to="/step1" />
+          </Switch>
+        </form>
+      </div>
+    </Router>
+  )
+};
 
 export const EnhancedForm = withFormik({
   // setup initial values
@@ -100,12 +90,6 @@ export const EnhancedForm = withFormik({
     email: '',
     verificationMethod: '',
     verificationCode: ''
-  }),
-
-  // TODO: Remove if no longer needed
-  mapPropsToStatus: props => ({
-    // isValid: props.isValid,
-    myProps: JSON.stringify(props)
   }),
 
   validate: (values, props) => {
