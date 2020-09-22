@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Bugs remaining
+
+* mobile portrait mode looks terrible
+* accessibility incomplete
+
 ## Setup
 
 *Note:* Even though this project was bootstrapped with Yarn, npm can be used as well in its place.
